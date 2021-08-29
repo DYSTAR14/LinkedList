@@ -28,4 +28,21 @@ public class LLOperations<K> {
 			System.out.println(temp.data);
 		}
 	}
+
+	public LLOperations<K> addLast(LLOperations<K> myList, K element) {
+		Node<K> newNode = new Node<K>(element);
+		if (head == null) {
+			head = newNode;
+			System.out.println("Enter Value at End:" + newNode.data);
+		} else {
+			Node<K> temp = head;
+			while (temp.next != null) {
+				temp = temp.next;
+			}
+			temp.next = newNode;
+			System.out.println("Enter Value at End:" + newNode.data);
+		}
+		return myList;
+		
+	}
 }

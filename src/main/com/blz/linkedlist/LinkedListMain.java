@@ -22,6 +22,10 @@ public class LinkedListMain {
 				System.out.println("Enter Value");
 				list.addFirst(list, SC.nextInt());
 				break;
+			case 2:
+				System.out.println("Enter Value");
+				list.addLast(list, SC.nextInt());
+				break;
 			case 8:
 				list.display(list);
 				break;
