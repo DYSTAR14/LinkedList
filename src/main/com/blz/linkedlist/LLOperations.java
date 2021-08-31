@@ -53,6 +53,16 @@ public class LLOperations<K> {
 		return list;	
 	}
 	
+	public LLOperations<K> deleteFirst(LLOperations<K> list) {
+		if(head == null) {
+			System.out.println("LinkedList is Empty");
+		}
+		Node<K> temp = head;
+		head = temp.next;
+		temp.next = null;
+		return list;
+	}
+	
 	public void display(LLOperations<K> myList) {
 		if (head == null) {
 			System.out.println("Linked list is Empty");
@@ -65,5 +75,7 @@ public class LLOperations<K> {
 			System.out.println(temp.data);
 		}
 	}
+
+
 	
 }
