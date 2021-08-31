@@ -33,6 +33,9 @@ public class LinkedListMain {
 			case 4:
 				list.deleteFirst(list);
 				break;
+			case 5:
+				list.deleteLast(list);
+				break;
 			case 8:
 				list.display(list);
 				break;
