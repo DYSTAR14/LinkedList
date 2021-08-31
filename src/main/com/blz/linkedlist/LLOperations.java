@@ -91,5 +91,23 @@ public class LLOperations<K> {
 	}
 
 
-	
+	public K searchElement(LLOperations<K> list, K element) {
+		if (head == null) {
+			System.out.println("Linked list is Empty");
+			return null;
+		} else {
+			Node<K> temp = head;
+			int count=0;
+			while (temp.next != null ) {
+				if(temp.data == element) {
+					return temp.data;	
+				}
+				else {
+					count++;
+					temp = temp.next;					
+				}
+			}
+			return temp.data;
+		}
+	}
 }
