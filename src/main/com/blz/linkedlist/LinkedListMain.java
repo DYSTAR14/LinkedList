@@ -26,6 +26,10 @@ public class LinkedListMain {
 				System.out.println("Enter Value");
 				list.addLast(list, SC.nextInt());
 				break;
+			case 3:
+				System.out.println("Enter Value & Position");
+				list.addAtNthPos(list, SC.nextInt(), SC.nextInt());
+				break;
 			case 8:
 				list.display(list);
 				break;
