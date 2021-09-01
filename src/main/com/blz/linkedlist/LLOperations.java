@@ -1,5 +1,6 @@
 package com.blz.linkedlist;
 
+import java.util.ArrayList;
 
 public class LLOperations<K> {
 	Node<K> head;
@@ -77,17 +78,21 @@ public class LLOperations<K> {
 		return list;
 	}
 	
-	public void display(LLOperations<K> myList) {
+	public ArrayList<K> display(LLOperations<K> myList) {
+		ArrayList<K> myListDisplay = new ArrayList<K>();
 		if (head == null) {
 			System.out.println("Linked list is Empty");
 		} else {
 			Node<K> temp = head;
 			while (temp.next != null) {
+				myListDisplay.add(temp.data);
 				System.out.print(temp.data + "->");
 				temp = temp.next;
 			}
 			System.out.println(temp.data);
+			myListDisplay.add(temp.data);
 		}
+		return myListDisplay;
 	}
 
 
@@ -110,4 +115,5 @@ public class LLOperations<K> {
 			return temp.data;
 		}
 	}
+
 }
