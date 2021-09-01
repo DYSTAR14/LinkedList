@@ -36,6 +36,10 @@ public class LinkedListMain {
 			case 5:
 				list.deleteLast(list);
 				break;
+			case 6:
+				System.out.println("Enter Position");
+				list.deleteAtNthPos(list,SC.nextInt());
+				break;
 			case 7:
 				System.out.println("Enter Value");
 				list.searchElement(list,SC.nextInt());

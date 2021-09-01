@@ -2,6 +2,7 @@ package com.blz.linkedlist;
 
 import java.util.ArrayList;
 
+
 public class LLOperations<K> {
 	Node<K> head;
 
@@ -78,6 +79,30 @@ public class LLOperations<K> {
 		return list;
 	}
 	
+	public LLOperations<K> deleteAtNthPos(LLOperations<K> list,int pos) {
+		int counter = 0;
+		if(head == null) {
+			System.out.println("LinkedList is Empty");
+		}
+		else if(counter == pos) {
+			Node<K> temp = head;
+			head = temp.next;
+			temp.next = null;
+		}
+		else if(counter < pos) {
+			Node<K> temp = head;
+			Node<K> last = head;
+			while(temp.next != null && counter < pos) {
+				counter++;
+				last = temp;
+				temp = temp.next;
+			}
+			last.next = temp.next;
+			temp.next = null;
+		}
+		return list;
+	}
+	
 	public ArrayList<K> display(LLOperations<K> myList) {
 		ArrayList<K> myListDisplay = new ArrayList<K>();
 		if (head == null) {
@@ -102,13 +127,11 @@ public class LLOperations<K> {
 			return null;
 		} else {
 			Node<K> temp = head;
-			int count=0;
 			while (temp.next != null ) {
 				if(temp.data == element) {
 					return temp.data;	
 				}
 				else {
-					count++;
 					temp = temp.next;					
 				}
 			}

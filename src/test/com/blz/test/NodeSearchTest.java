@@ -16,7 +16,7 @@ import com.blz.linkedlist.LLOperations;
 public class NodeSearchTest<E> {
 
 	public static LLOperations<Integer> list;
-	public static LLOperations<Integer> list1;
+	
 	@Before
 	public void addNode() {
 		list = new LLOperations<Integer>();
@@ -48,6 +48,13 @@ public class NodeSearchTest<E> {
 		ArrayList<Integer> actual = list.display(list);
 	    assertEquals(expected, actual);
 	}
-
+	
+	@Test
+	public void testDeleteAtPos_Sucess() {
+		List<Integer> expected = Arrays.asList(50,20,70);
+		list.deleteAtNthPos(list,2);
+		ArrayList<Integer> actual = list.display(list);
+	    assertTrue(actual.size() == expected.size() && actual.containsAll(expected) && expected.containsAll(actual));
+	}
 }
 
