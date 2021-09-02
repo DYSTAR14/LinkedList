@@ -1,12 +1,26 @@
-package com.blz.linkedlist;
+package com.blz.sortedlinkedlist;
 
 import java.util.ArrayList;
 
-
-public class LLOperations<K> {
+public class SortedLLOperations<K> {
 	Node<K> head;
-
-	public LLOperations<K> addFirst(LLOperations<K> myList, K element) {
+	
+	public  void insertSortLinkedList(SortedLLOperations<K> myList,K element) {
+		Node<K> newNode = new Node<K>(element);
+		if(head == null || ((Integer) head.data).compareTo((Integer) newNode.data) >=0) {
+			addFirst(myList, element);
+		}
+		else {
+			Node<K> temp = head;
+			while ( temp.next != null && ((Integer) temp.next.data).compareTo((Integer) newNode.data) < 0) {
+				temp = temp.next;
+			}
+			newNode.next = temp.next;
+			temp.next = newNode;
+		}
+	}
+	
+	public SortedLLOperations<K> addFirst(SortedLLOperations<K> myList, K element) {
 		Node<K> newNode = new Node<K>(element);
 		if (head == null) {
 			head = newNode;
@@ -20,7 +34,7 @@ public class LLOperations<K> {
 	}
 	
 
-	public LLOperations<K> addLast(LLOperations<K> myList, K element) {
+	public SortedLLOperations<K> addLast(SortedLLOperations<K> myList, K element) {
 		Node<K> newNode = new Node<K>(element);
 		if (head == null) {
 			head = newNode;
@@ -36,13 +50,16 @@ public class LLOperations<K> {
 		return myList;	
 	}
 	
-	public LLOperations<K> addAtNthPos(LLOperations<K> list,K data,int pos) {
+	public SortedLLOperations<K> addAtNthPos(SortedLLOperations<K> list,K data,int pos) {
 		Node<K> newNode = new Node<K>(data);
-		int counter = 0;
+		int counter = 1;
 		if(head == null) {
 			head = newNode;
 		}
-		else if(counter <= pos) {
+		else if(counter == pos) {
+			addFirst(list, data);
+		}
+		else if(counter < pos) {
 			Node<K> temp = head;
 			while(temp.next != null && counter < pos-1) {
 				counter++;
@@ -55,7 +72,7 @@ public class LLOperations<K> {
 		return list;	
 	}
 	
-	public LLOperations<K> deleteFirst(LLOperations<K> list) {
+	public SortedLLOperations<K> deleteFirst(SortedLLOperations<K> list) {
 		if(head == null) {
 			System.out.println("LinkedList is Empty");
 		}
@@ -65,7 +82,7 @@ public class LLOperations<K> {
 		return list;
 	}
 	
-	public LLOperations<K> deleteLast(LLOperations<K> list) {
+	public SortedLLOperations<K> deleteLast(SortedLLOperations<K> list) {
 		if(head == null) {
 			System.out.println("LinkedList is Empty");
 		}
@@ -79,7 +96,7 @@ public class LLOperations<K> {
 		return list;
 	}
 	
-	public LLOperations<K> deleteAtNthPos(LLOperations<K> list,int pos) {
+	public SortedLLOperations<K> deleteAtNthPos(SortedLLOperations<K> list,int pos) {
 		int counter = 0;
 		if(head == null) {
 			System.out.println("LinkedList is Empty");
@@ -103,7 +120,7 @@ public class LLOperations<K> {
 		return list;
 	}
 	
-	public ArrayList<K> display(LLOperations<K> myList) {
+	public ArrayList<K> display(SortedLLOperations<K> myList) {
 		ArrayList<K> myListDisplay = new ArrayList<K>();
 		if (head == null) {
 			System.out.println("Linked list is Empty");
@@ -121,7 +138,7 @@ public class LLOperations<K> {
 	}
 
 
-	public K searchElement(LLOperations<K> list, K element) {
+	public K searchElement(SortedLLOperations<K> list, K element) {
 		if (head == null) {
 			System.out.println("Linked list is Empty");
 			return null;
@@ -138,6 +155,5 @@ public class LLOperations<K> {
 			return temp.data;
 		}
 	}
-
 
 }
