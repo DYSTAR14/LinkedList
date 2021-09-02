@@ -7,7 +7,7 @@ public class SortedLLOperations<K> {
 	
 	public  void insertSortLinkedList(SortedLLOperations<K> myList,K element) {
 		Node<K> newNode = new Node<K>(element);
-		if(head == null || ((Integer) head.data).compareTo((Integer) newNode.data) >=0) {
+		if(head == null || ((Integer) head.data).compareTo((Integer) newNode.data) >= 0) {
 			addFirst(myList, element);
 		}
 		else {
@@ -17,6 +17,7 @@ public class SortedLLOperations<K> {
 			}
 			newNode.next = temp.next;
 			temp.next = newNode;
+			System.out.println("Enter Value Added:" + newNode.data);
 		}
 	}
 	
